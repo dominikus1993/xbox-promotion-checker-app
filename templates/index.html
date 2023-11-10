@@ -1,0 +1,19 @@
+<!-- FILEPATH: /Users/dominikkotecki/Documents/projekty/xbox-promotion-checker-app/templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My htmx App</title>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to my htmx {{ .title }}!</h1>
+    <p>Click the button below to load some content via AJAX:</p>
+    <button hx-get="/some-data">Load Data</button>
+    <div hx-target="#data-container"></div>
+    <script>
+        // Add any custom JavaScript here
+    </script>
+</body>
+</html>
