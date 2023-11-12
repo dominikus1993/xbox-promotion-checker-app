@@ -3,6 +3,7 @@ package mongodb
 import (
 	"testing"
 
+	"github.com/dominikus1993/xbox-promotion-checker-app/pkg/games"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -25,4 +26,29 @@ func FuzzParsePrice(f *testing.F) {
 		res := parsePrice(value)
 		assert.Equal(t, expected, res)
 	})
+}
+
+func TestToXboxGame(t *testing.T) {
+	element := screapedXboxHame{
+		ID:        "123",
+		Title:     "title",
+		Link:      "link",
+		Price:     "1.23",
+		OldPrice:  "2.34",
+		CrawledAt: 123,
+		Promotion: "10%",
+	}
+
+	expected := games.XboxStoreGame{
+		ID:       "123",
+		Title:    "title",
+		Link:     "link",
+		Price:    1.23,
+		OldPrice: 2.34,
+	}
+
+	res := toXboxGame(element)
+
+	assert.Equal(t, expected, res)
+
 }
