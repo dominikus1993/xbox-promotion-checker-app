@@ -19,6 +19,7 @@ func FuzzParsePrice(f *testing.F) {
 		{"2.13", 2.13},
 		{"21.37", 21.37},
 		{"21.37.0", 0},
+		{"1.a", 0},
 	}
 
 	for _, d := range data {
